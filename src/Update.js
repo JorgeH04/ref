@@ -144,7 +144,15 @@ export default class Destacados extends Component {
 
     render() {
         return (
+ 
             <div >
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
                 <div className="col-md-6 offset-md-3">
                    <div className="card card-body">
                      <h4>Actualizar sus productos</h4>

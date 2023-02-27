@@ -29,24 +29,28 @@ export default function ProductProvider({ children }) {
 
  //   const initialUrlDos = `https://stelenapp.herokuapp.com`;
 
-   const initialUrlDos = `http://localhost:4000`;
+   const initialUrlDos = 
+   [{
+    "_id":"6265d4f9fec74ab2cc204c95",
+    "name":"Jor",
+    "title":"d",
+    "image":"https://external-eze1-1.xx.fbcdn.net/safe_image.php?d=AQCXCsLWC3f7CRQA&w=540&h=282&url=http%3A%2F%2Fbucket3.glanacion.com%2Fanexos%2Ffotos%2F99%2F2855299.jpg&cfs=1&upscale=1&fallback=news_d_placeholder_publisher&_nc_hash=AQA9nHaDmpnane-J",
+    "description":"assa quis enim",
+    "price":1,
+    "amount":1,
+    "status":false,"__v":0
+  }]
+  
+  console.log(initialUrlDos)
 
 
    React.useEffect(() => {
     setLoading(true);
     async function fetchData() {
-
       let response = await getAll(initialUrl);
-      //console.log(response);
       setSorted(paginate(products));
-      //
-      
-   //   console.log(response.data);
       setProducts(response.data);
       setLoading(false);
-  
-    
-    
   }
   fetchData();
   
@@ -58,19 +62,12 @@ export default function ProductProvider({ children }) {
    React.useEffect(() => {
     setLoading(true);
     async function fetchData() {
-
       let responsedos = await getAll(initialUrlDos);
-      //console.log(responsedos);
-      //setSorted(paginate(products));
-      //console.log(res);
       setFeatured(responsedos.data);
       setLoading(false);
-  
-    
-    
+      console.log(responsedos)
   }
   fetchData();
-  
   }, []);
 
 

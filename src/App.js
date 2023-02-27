@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Nav from "./components/Nav";
 import Home from "./components/Home";
+import Hero from "./components/Hero";
+import Footer from "./components/Footer";
+
 import ProductFeatured from "./components/Products/ProductFeatured";
 import About from "./components/Products/About";
 import ProductDetails from "./components/Products/ProductDetails";
@@ -23,12 +26,14 @@ function App() {
 
   <Nav />
   <Route exact path="/">
-          <Home />
-          <ProductFeatured />
+ 
+       <Product />
+
   </Route>
 
   <Route exact path="/products">
           <Product />
+
   </Route>
 
   <Route
@@ -51,9 +56,12 @@ function App() {
   ></Route>
 
 
-<Route path="/cart">
-<Cart />
-</Route>
+    <Route path="/cart">
+        <Cart />
+    </Route>
+
+              <Footer />
+
 
 </Router>
 

@@ -8,54 +8,73 @@ export default function PaginatedProducts() {
 
   if (sorted[page]) {
     return (
-      <section>
-        <ProductList products={sorted[page]}></ProductList>
+      <>
 
-        {/* buttons */}
-        {sorted.length > 1 && (
-          <article className="pagination-buttons">
-            {/* prev button */}
-            {page > 0 && (
-              <button
-                onClick={() => changePage(page - 1)}
-                className="prev-page-btn"
-              >
-                <FaAngleDoubleLeft></FaAngleDoubleLeft>
-              </button>
-            )}
-            {sorted.map((_, index) => {
-              return (
-                <button
-                  onClick={() => changePage(index)}
-                  key={index}
-                  className={`page-btn ${page === index && `page-btn-current`}`}
-                >
-                  {index + 1}
-                </button>
-              );
-            })}
-            {/* next button */}
-            {page < sorted.length - 1 && (
-              <button
-                onClick={() => changePage(page + 1)}
-                className="next-page-btn"
-              >
-                <FaAngleDoubleRight></FaAngleDoubleRight>
-              </button>
-            )}
-          </article>
-        )}
-      </section>
-    );
 
- // if (sorted) {
-   // return (
-   //   <section> <ProductList products={sorted}></ProductList>
-        
+  <div class="breadcrumb-section breadcrumb-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<p>Fresh and Organic</p>
+						<h1>Shop</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-       
-     // </section>
-  //  );
+
+
+
+   	<div class="product-section mt-150 mb-150">
+		<div class="container">
+
+			<div class="row">
+                <div class="col-md-12">
+
+                    <div class="product-filters">
+										<h1 className="search-errors text-center">
+                            Products
+                     </h1>
+                     
+                    </div>
+                </div>
+            </div>
+
+			<div class="row product-lists">
+
+			          <ProductList products={sorted[page]}></ProductList>
+
+		 
+     </div>
+
+			 
+			 
+			 
+
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="pagination-wrap">
+						<ul>
+							<li><a href="#">Prev</a></li>
+							<li><a href="#">1</a></li>
+							<li><a class="active" href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">Next</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+    </>
+
+  );
+
+
   } else {
     return (
       <h3 className="search-errors">

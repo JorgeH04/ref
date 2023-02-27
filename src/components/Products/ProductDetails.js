@@ -4,6 +4,7 @@ import { ProductContext } from "../../context/products";
 import { CartContext } from "../../context/cart";
 import { useHistory } from "react-router-dom";
 import Loading from "./Loading";
+
 export default function ProductDetails() {
   const { _id } = useParams();
   const history = useHistory();
@@ -12,15 +13,13 @@ export default function ProductDetails() {
   const { addToCart } = React.useContext(CartContext);
   const product = products.find(item => item._id === _id);
 
-  const [details, setDetails] = React.useState([{title: "", price: "", amount: ""}]);
+  const [details, setDetails] = React.useState([{title: "", price: "", amount: "", image: ""}]);
   const [price, setPrice] = React.useState();
   const [title, setTitle] = React.useState();
   const [amount, setAmount] = React.useState();
 
-// accounts.map(({friends}) => friends)
+  
 
-
- 
 
 
   React.useEffect(() => {
@@ -82,22 +81,41 @@ export default function ProductDetails() {
   if (products.length === 0) {
     return <Loading />;
   } else {
-    //const { image, title, price, description, amount } = product;
+   const { image, description } = product;
 
 
- 
-
-
-    
     return (
-      <section className="single-product">
-        <img     className="single-product-image" />
-        <article>
-          <h1>{title} </h1>
-          <h2>${price}</h2>
-          <p> </p>
+      <>
 
-          <div>
+      <div class="breadcrumb-section breadcrumb-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 text-center">
+            <div class="breadcrumb-text">
+              <p>See more Details</p>
+              <h1>Single Product</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+<div class="single-product mt-150 mb-150">
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="single-product-img">
+        <img src={image}  alt=""/>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="single-product-content">
+        <h3>{title}</h3>
+        <p class="single-product-pricing"><span>Per Kg</span> ${price}</p>
+
+        <p class="single-product-pricing">  
+        <div>
             <div>
               <input
                 type="checkbox"
@@ -105,12 +123,15 @@ export default function ProductDetails() {
                 value={details.val}
                 onChange={(e) => handleCheck(e)}
               />
-              <label htmlFor="double"></label>
+              <label htmlFor="double">Spice</label>
             </div>
         </div>
+        </p>
 
 
-          <div>
+
+         <p class="single-product-pricing">  
+        <div>
             <div>
               <input
                 type="checkbox"
@@ -118,22 +139,45 @@ export default function ProductDetails() {
                 value={details.val}
                 onChange={(e) => handleCheckdos(e)}
               />
-              <label htmlFor="double"></label>
+              
+              <label htmlFor="double">Extra cheese</label>
+              
             </div>
         </div>
+        </p>
 
 
-          <button
-            className="btn btn-primary btn-block"
+        <p>{  description }</p>
+       
+        <div class="single-product-form">
+    
+
+            <a
+            class="cart-btn"
             onClick={() => {
               addToCart( {...details, price, });
               history.push("/cart");
             }}
           >
-            Agregar al carro
-          </button>
-        </article>
-      </section>
+            Add to card
+          </a>
+
+
+      
+        </div>
+     
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+</>
+
     );
   }
 }

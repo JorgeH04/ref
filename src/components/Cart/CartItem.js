@@ -7,42 +7,33 @@ export default function CartItem({ _id, image, title, price, amount }) {
     CartContext
   );
   return (
-    <article className="cart-item" key={_id}>
-      <img src={image} alt={title} />
-      <div>
-        <h4>{title}</h4>
-        <h5>${price}</h5>
-        <button
-          type="button"
-          className="cart-btn remove-btn"
-          onClick={() => {
-            removeItem(_id);
-          }}
-        >
-          eliminar
-        </button>
-      </div>
-      <div>
-        <button
-          type="button"
-          className="cart-btn amount-btn"
-          onClick={() => {
-            increaseAmount(_id);
-          }}
-        >
-          <FaAngleUp />
-        </button>
-        <p className="item-amount">{amount}</p>
-        <button
-          type="button"
-          className="cart-btn amount-btn"
-          onClick={() => {
-            decreaseAmount(_id, amount);
-          }}
-        >
-          <FaAngleDown />
-        </button>
-      </div>
-    </article>
+
+<>
+
+   	           <tr class="table-body-row">
+									<td class="product-remove">
+                      <a    type="button"
+                            className="cart-btn remove-btn"
+                            onClick={() => {
+                              removeItem(_id);
+                            }}>
+                         <i class="far fa-window-close"></i>
+                      </a>
+                  </td>
+									<td class="product-image"><img src={image} alt=""/></td>
+									<td class="product-name">{title}</td>
+									<td class="product-price">${price}</td>
+									<td class="product-quantity">
+                     <input type="number" placeholder="0"/>
+                  </td>
+									<td class="product-total">1</td>
+								</tr>
+
+
+</>
+
+
+
+
   );
 }
