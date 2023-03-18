@@ -130,21 +130,7 @@ export default function ProductDetails() {
 
 
 
-         <p class="single-product-pricing">  
-        <div>
-            <div>
-              <input
-                type="checkbox"
-                name={details.price}
-                value={details.val}
-                onChange={(e) => handleCheckdos(e)}
-              />
-              
-              <label htmlFor="double">Extra cheese</label>
-              
-            </div>
-        </div>
-        </p>
+      
 
 
         <p>{  description }</p>
