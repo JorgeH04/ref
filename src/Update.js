@@ -52,8 +52,8 @@ export default class Destacados extends Component {
         });
 
     }else{
-           // fetch('https://stelenapp.herokuapp.com/api/post/add',{       
-            fetch('http://localhost:4000/api/post/add',{
+             fetch('fdback.herokuapp.com/api/post/add',{       
+          //  fetch('http://localhost:4000/api/post/add',{
               method: 'POST',
               body: JSON.stringify(this.state),
           
@@ -83,8 +83,8 @@ export default class Destacados extends Component {
   }
 
    fetchPosts() {
-    //fetch('http://localhost:400.com/api/post')
-    fetch('http://localhost:4000/api/post')
+    fetch('fdback.herokuapp.com/api/post')
+   // fetch('http://localhost:4000/api/post')
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -96,8 +96,8 @@ export default class Destacados extends Component {
   }
 
   deletePost(_id){ 
-       // fetch(`https://stelenapp.herokuapp.com/api/post/delete/${_id}`, {
-          fetch(`http://localhost:4000/api/post/delete/${_id}`, {
+         fetch(`https://fdback.herokuapp.com/api/post/delete/${_id}`, {
+       //  fetch(`http://localhost:4000/api/post/delete/${_id}`, {
           method: 'DELETE',
           headers: {
             'Accept': 'application/json',
