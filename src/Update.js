@@ -52,7 +52,7 @@ export default class Destacados extends Component {
         });
 
     }else{
-             fetch('fdback.herokuapp.com/api/post/add',{       
+             fetch('https://fdback.herokuapp.com/api/post/add',{       
           //  fetch('http://localhost:4000/api/post/add',{
               method: 'POST',
               body: JSON.stringify(this.state),
@@ -83,7 +83,7 @@ export default class Destacados extends Component {
   }
 
    fetchPosts() {
-    fetch('fdback.herokuapp.com/api/post')
+    fetch('https://fdback.herokuapp.com/api/post')
    // fetch('http://localhost:4000/api/post')
       .then(res => res.json())
       .then(data => {
